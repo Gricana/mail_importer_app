@@ -5,7 +5,7 @@ class AccountManager(BaseUserManager):
 
     def create_user(self, email, password=None):
         """
-        Создает и возвращает обычного пользователя с указанным email и паролем.
+        Creates and returns a regular user with the specified email and password.
         """
         if not email:
             raise ValueError('Пользователь должен иметь адрес электронной почты')
@@ -18,7 +18,7 @@ class AccountManager(BaseUserManager):
 
     def create_superuser(self, email, password=None):
         """
-        Создает и возвращает суперпользователя с указанным email и паролем.
+        Creates and returns a superuser with the specified email and password.
         """
         user = self.create_user(email, password)
         user.is_admin = True
@@ -29,6 +29,6 @@ class AccountManager(BaseUserManager):
 
     def get_by_natural_key(self, email):
         """
-        Метод для поиска пользователя по естественному ключу (email).
+        Method for searching for a user using a natural key (email).
         """
         return self.get(email=email)

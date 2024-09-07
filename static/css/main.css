@@ -1,0 +1,21 @@
+.progress-bar {
+    width: 100%;
+    background-color: #f3f3f3;
+    border: 1px solid #ccc;
+    position: relative;
+    height: 20px;
+}
+.progress-bar-inner {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0;
+}
+.email-row {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+.email-row:nth-child(odd) {
+    background-color: #f9f9f9;
+}

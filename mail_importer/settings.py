@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-$d#nz2r86x=97t)v3ax*xfp+2xaoqr++j1wmxo7n+l2f)+pujx'
+PASSWORD_KEY = os.environ.get('PASSWORD_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -72,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-ASGI_APPLICATION = 'mail_importer.asgi.application'
+ASGI_APPLICATION = 'mail_importer.asgi:application'
 
 
 CHANNEL_LAYERS = {
@@ -147,6 +149,11 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / 'static'
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# To store message attachments
+MEDIA_URL = '/attchmnt/'
+MEDIA_ROOT = BASE_DIR / 'attachments'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

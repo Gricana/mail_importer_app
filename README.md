@@ -39,7 +39,7 @@ export DB_PASSWORD='your_database_password'
 export PASSWORD_KEY='VQdUF9K_1DnuoMdKudLFVp5BQRp_9Ubt0pJ634GraXE='
 ```
 #### Важно! 
-Значением **PASSWORD_KEY** должна быть строка Base64, которая представляет 
+> Значением **PASSWORD_KEY** должна быть строка Base64, которая представляет 
 32 байта _(как в примере)_. 
 
 Запустить проект с помощью **daphne** (при использовании WebSocket-соединения):
